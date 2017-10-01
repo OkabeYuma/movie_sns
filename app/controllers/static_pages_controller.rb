@@ -7,4 +7,7 @@ class StaticPagesController < ApplicationController
 
   def signup
   end
+  
+  def search
+  end
 end

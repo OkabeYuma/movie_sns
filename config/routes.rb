@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
-  
-  get 'static_pages/about'
-
-  get 'static_pages/login'
-
-  get 'static_pages/signup'
+  root 'static_pages#home'
+  match '/about', to: 'static_pages#about', via: 'get'
+  match '/login', to: 'static_pages#login', via: 'get'
+  match '/signup', to: 'static_pages#signup', via: 'get'
+  match '/search', to: 'static_pages#search', via: 'get'
 
   # root 'application#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
