@@ -12,10 +12,11 @@
     <%= render 'layouts/header' %>
     <div class="container">
     
-      <% flash.each do |key, value| %>
-        <div class="alert <%= bootstrap_class_for(key) %>"><%= value %></div>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
+      <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
