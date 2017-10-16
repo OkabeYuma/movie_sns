@@ -10,4 +10,7 @@ class StaticPagesController < ApplicationController
   
   def search
   end
+  
+  def movies
+  end
 end

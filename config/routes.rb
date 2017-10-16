@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   match '/login', to: 'static_pages#login', via: 'get'
   match '/signup', to: 'static_pages#signup', via: 'get'
   match '/search', to: 'static_pages#search', via: 'get'
+  match '/movies', to: 'static_pages#movies', via: 'get'
 
   # root 'application#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
