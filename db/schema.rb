@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017150808) do
+ActiveRecord::Schema.define(version: 20171021101109) do
 
-# Could not dump table "movies" because of following StandardError
-#   Unknown type '' for column 'valuation'
+  create_table "movies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "poster_path"
+    t.string "overview"
+    t.string "vote_average"
+    t.string "release_date"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
