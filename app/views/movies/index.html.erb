@@ -1,0 +1,21 @@
+<h1>Movies#index</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>title</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <% @movies.each do |movie| %>
+            <tr>
+                <td><%= movie.title %></td>
+                <td><%= link_to 'Show', movies_index_path(movie) %></td>
+                <td><%= link_to 'Edit', movies_edit_path(movie) %></td>
+                <td><%= link_to 'Destroy', movies_path, method: :delete, data: { confirm: 'Are you sure?'} %></td>
+            </tr>
+        <% end %>
+    </tbody>
+    
+</table>

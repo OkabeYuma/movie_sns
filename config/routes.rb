@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  
+  # resources :movies
+
+  root 'movies#index'  
+  get 'movies/index'
+  get 'movies/show'
+  get 'movies/new'
+  get 'movies/edit'
+
 #   get 'user/show'
 
   devise_for :users, :controllers => {
