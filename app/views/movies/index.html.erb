@@ -1,5 +1,10 @@
 <h1>Movies#index</h1>
-
+<%= form_tag :search_movies,method: :get do %>
+    <p>
+       <%= text_field_tag "q",params[:q] %> 
+       <%= submit_tag "検索" %>
+    </p>
+<% end %>
 <table>
     <thead>
         <tr>
@@ -11,9 +16,11 @@
         <% @movies.each do |movie| %>
             <tr>
                 <td><%= movie.title %></td>
-                <td><%= link_to 'Show', movies_index_path(movie) %></td>
-                <td><%= link_to 'Edit', movies_edit_path(movie) %></td>
-                <td><%= link_to 'Destroy', movies_path, method: :delete, data: { confirm: 'Are you sure?'} %></td>
+                <td><%= link_to '映画情報', movies_index_path(movie) %></td>
+                <td><%= "/"%></td>
+                <td><%= link_to '編集', movies_edit_path(movie) %></td>
+                <td><%= "/"%></td>
+                <td><%= link_to '削除', movies_path, method: :delete, data: { confirm: 'Are you sure?'} %></td>
             </tr>
         <% end %>
     </tbody>

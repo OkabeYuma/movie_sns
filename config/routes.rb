@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  
-  # resources :movies
 
-  root 'movies#index'  
+  # root 'movies#index'
+  # resources :movies
+  Rails.application.routes.draw do
+    resources :movies do
+      collection{ get "search"}
+    end
+  end
+  
   get 'movies/index'
   get 'movies/show'
   get 'movies/new'

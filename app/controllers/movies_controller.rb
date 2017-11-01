@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.all
+    # @q = Movie.ransack(params[:q])
+    # @people = @q.result(distinct: true)
   end
 
   def show
@@ -12,4 +14,19 @@ class MoviesController < ApplicationController
 
   def edit
   end
+  
+  def search
+    @movies = Movie.search(params[:q])
+    render "index"
+  end
+  
+  private
+  
+  # def search_params
+  #   search_conditions = %i(
+  #     title_cont
+  #     )
+  #   params.require(:q).permit(search_conditions)
+  # end
+  
 end
