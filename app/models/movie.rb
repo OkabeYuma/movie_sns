@@ -3,8 +3,6 @@ class Movie < ApplicationRecord
         def search(query)
             rel = order("title")
             if query.present?
-                # rel = rel.where("title LIKE ?",
-                # "%#{query}%","%#{query}%")
                 rel = rel.where("title LIKE ?", "%#{query}%")
             end
             rel
