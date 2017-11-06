@@ -3,11 +3,13 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :except=>[:show]
   
   def index
-     @users = User.all 
+    # @users = User.all 
+    @users = User.paginate(page: params[:page])
   end
   
   def show
     @user = User.find(params[:id])
+    @reviews = @user.reviews.paginate(page: params[:page])
   end
   
   def create
@@ -22,7 +24,7 @@ class UsersController < ApplicationController
   
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "ユーザーの削除"
+    flash[:success] = "ユーザー情報を削除しました。"
     redirect_to user_url
   end
   
