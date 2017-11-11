@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index, :destroy]
+  resources :reviews, only: [:create, :destroy]
   root 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/login', to: 'static_pages#login', via: 'get'
