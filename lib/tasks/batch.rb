@@ -6,10 +6,11 @@ class Tasks::Batch
     require 'net/http'
     require 'uri'
     require 'json'
+    require 'date'
     db = SQLite3::Database.new("db/development.sqlite3")
     db.transaction do
-      sql = "insert into movies(title,poster_path,genre,overview,vote_average,release_date) values (?, ?, ?, ?, ?, ?)"
-      for num in 2..5 do
+      sql = "insert into movies(title,poster_path,genre,overview,vote_average,release_date,created_at,updated_at) values (?, ?, ?, ?, ?, ?,?,?)"
+      for num in 2..100 do
         uri = URI.parse(URIforward + num.to_s + URIbackward)
         json = Net::HTTP.get(uri)
         result = JSON.parse(json)
@@ -21,8 +22,10 @@ class Tasks::Batch
         overview = result['overview'].to_s
         vote_average = result['vote_average'].to_s
         release_date = result['release_date'].to_s
+        created_at = "2008-08-19 15:08:19"
+        updated_at = "2008-08-19 15:08:19"
         if !title.empty?
-          db.execute(sql, title, poster_path, genre, overview, vote_average, release_date)
+          db.execute(sql, title, poster_path, genre, overview, vote_average, release_date, created_at,updated_at)
         end
       end
     end

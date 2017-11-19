@@ -15,12 +15,13 @@
     <tbody>
         <% @movies.each do |movie| %>
             <tr>
-                <td><%= movie.title %></td>
-                <td><%= link_to '映画情報', movies_index_path(movie) %></td>
-                <td><%= "/"%></td>
-                <td><%= link_to '編集', movies_edit_path(movie) %></td>
-                <td><%= "/"%></td>
-                <td><%= link_to '削除', movies_path, method: :delete, data: { confirm: 'Are you sure?'} %></td>
+                <td><%= link_to movie.title, movies_index_path(movie) %></td>
+                <% if current_user.admin? %>
+                    <td><%= "/"%></td>
+                    <td><%= link_to '編集', movies_edit_path(movie) %></td>
+                    <td><%= "/"%></td>
+                    <td><%= link_to '削除', movies_path, method: :delete, data: { confirm: 'この映画の情報を削除してもよろしいですか？'} %></td>
+                <% end %>
             </tr>
         <% end %>
     </tbody>

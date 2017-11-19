@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    @movie = Movie.new
   end
 
   def edit
@@ -18,6 +18,13 @@ class MoviesController < ApplicationController
   def search
     @movies = Movie.search(params[:q])
     render "index"
+  end
+  
+  def destroy
+    Movie.find(params[:id]).delete
+    #@review.delete
+    redirect_to movie_url
+    flash[:notice] = "映画情報を削除しました。"
   end
   
   private

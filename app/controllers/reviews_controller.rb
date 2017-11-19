@@ -6,9 +6,10 @@ class ReviewsController < ApplicationController
     def create
         @review = current_user.reviews.build(review_params)
         if @review.save
-            flash[:success] = "Micropost created"
+            flash[:success] = "レビューが投稿されました。"
             redirect_to root_url
         else
+            @feed_items = []
             render 'static_pages/home'
         end
     end
@@ -17,7 +18,7 @@ class ReviewsController < ApplicationController
         Review.find(params[:id]).delete
         #@review.delete
         redirect_to root_url
-        flash[:notice] = "Micropost created"
+        flash[:notice] = "レビューが削除されました。"
     end
     
     private
@@ -28,7 +29,7 @@ class ReviewsController < ApplicationController
     
     def correct_user
         @review = current_user.reviews.find_by(id: params[:id])
-        redirect_to root_url if @micropost.nil?
+        redirect_to root_url if @review.nil?
     end
     
 end
