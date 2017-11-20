@@ -21,10 +21,10 @@ class MoviesController < ApplicationController
   end
   
   def destroy
-    Movie.find(params[:id]).delete
-    #@review.delete
-    redirect_to movie_url
+    # @movie = Movie.find(params[:id]).delete
+    Movie.find(params[:id]).destroy
     flash[:notice] = "映画情報を削除しました。"
+    redirect_to movies_path
   end
   
   private
