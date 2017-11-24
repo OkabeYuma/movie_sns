@@ -1,8 +1,7 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
-    # @q = Movie.ransack(params[:q])
-    # @people = @q.result(distinct: true)
+    # @movies = Movie.all
+    @movies = Movie.paginate(page: params[:page])
   end
 
   def show
@@ -16,7 +15,8 @@ class MoviesController < ApplicationController
   end
   
   def search
-    @movies = Movie.search(params[:q])
+    # @movies = Movie.search(params[:q])
+    @movies = Movie.paginate(page: params[:page]).search(params[:q])
     render "index"
   end
   

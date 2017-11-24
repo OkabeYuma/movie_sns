@@ -10,7 +10,8 @@ class Tasks::Batch
     db = SQLite3::Database.new("db/development.sqlite3")
     db.transaction do
       sql = "insert into movies(title,poster_path,genre,overview,vote_average,release_date,created_at,updated_at) values (?, ?, ?, ?, ?, ?,?,?)"
-      for num in 100..300 do
+      for num in 301..600 do
+      # for num in 100..300 do
       # for num in 2..100 do
         uri = URI.parse(URIforward + num.to_s + URIbackward)
         json = Net::HTTP.get(uri)

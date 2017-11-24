@@ -5,6 +5,7 @@
        <%= submit_tag "検索" %>
     </p>
 <% end %>
+<%= will_paginate %>    
 <table>
     <thead>
         <tr>
@@ -14,6 +15,7 @@
     <tbody>
         <% @movies.each do |movie| %>
             <tr>
+                <td><%= link_to image_tag(movie.poster_path, :size => "37x56"), movies_index_path(movie) %></td>
                 <td><%= link_to movie.title, movies_index_path(movie) %></td>
                 <% if current_user.admin? %>
                     <td><%= "/"%></td>
@@ -25,3 +27,4 @@
         <% end %>
     </tbody>
 </table>
+<%= will_paginate %>
