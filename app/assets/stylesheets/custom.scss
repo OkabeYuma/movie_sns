@@ -225,3 +225,98 @@ aside {
         margin-bottom: 5px;
     }
 }
+
+/* movie info page */
+
+div.content_mv {
+  padding: 60px 0;
+  width: 100%;
+
+}
+
+div.contentArea {
+  margin: 0 auto;
+  width: 980px;
+  line-height: 2.0em;
+}
+
+.clm-left {
+	float: left;
+	width: 340px;
+}
+
+.clm-right {
+	float: right;
+	width: 640px;
+}
+
+.movieTitle {
+	margin-bottom: 10px;
+	width: 340px;
+	height: 40px;
+	border: 1px solid #000000;
+	text-align: center;
+}
+.movieTitle h2{
+  border-style: none;
+}
+
+.movieTags {
+	margin-bottom: 10px;
+	width: 340px;
+	height: 100px;
+	border: 1px solid #000000;
+}
+
+.tag ul {
+	text-align: center;
+}
+.tag li {
+	clear: both;
+	display: inline;
+	margin-right: 10px;
+}
+
+.movieStory {
+	width: 640px;
+	height: auto;
+	border: 1px solid #000000;
+	margin: 0 0 10px 20px;
+	padding: 10px;
+}
+
+.movieTitle .movieStory {
+	display: inline-block;
+}
+
+.moviePic {
+	width: 340px;
+	height: auto;
+}
+
+img.pic1 {
+	width: 340px;
+	height: 400px;
+}
+
+.movieInfo {
+	width: 640px;
+	height: auto;
+	border: 1px solid #000000;
+	margin: 0 0 10px 20px;
+	padding: 10px;
+	/*clear: both;*/
+}
+
+.otherReview {
+	width: 640px;
+	height: 500px;
+	/*height: auto;*/
+	border: 1px solid #000000;
+	margin: 0 0 10px 20px;
+	padding: 10px;
+	/*clear: both;*/
+}
+
+
+

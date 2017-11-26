@@ -15,8 +15,8 @@
     <tbody>
         <% @movies.each do |movie| %>
             <tr>
-                <td><%= link_to image_tag(movie.poster_path, :size => "37x56"), movies_index_path(movie) %></td>
-                <td><%= link_to movie.title, movies_index_path(movie) %></td>
+                <td><%= link_to image_tag(movie.poster_path, :size => "37x56"), movie_path(movie) %></td>
+                <td><%= link_to movie.title, movie_path(movie) %></td>
                 <% if current_user.admin? %>
                     <td><%= "/"%></td>
                     <td><%= link_to '編集', movies_edit_path(movie) %></td>

@@ -1,2 +1,50 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<% provide(:title, @movie.title) %>
+<div class="content_mv">
+    <div class="contentArea">
+    	<div class="clm-left">
+	    	<div class="movieTitle">
+		    	<h2><%= @movie.title  %></h2>
+		    </div>
+
+				<div class="movieTags">
+		  		<h2>Tags</h2>
+					<div class="tag">
+						<ul>
+							<li><a href="#">tag1</a></li>
+							<li><a href="#">tag2</a></li>
+							<li><a href="#">tag3</a></li>
+							<li><a href="#">tag4</a></li>
+							<li><a href="#">tag5</a></li>
+						</ul>
+					</div>
+		    </div>
+
+			<div class="moviePic">
+            　<%= image_tag(@movie.poster_path) %>
+        　  </div>
+
+				<button type="button">お気に入りに追加</button>
+				<button type="button" onClick="#" value="Jump">レビューを投稿</button>
+		</div>
+		<div class="clm-right">
+			<div class="movieStory">
+				<h2>STORY</h2>
+				<p><%= @movie.overview %><br>from : The Movie Database  https://www.themoviedb.org/</p>
+		    </div>
+			<div class="movieInfo">
+				<h2>Information</h2>
+				<p>Genre : <%= @movie.genre %>
+				<br>Director : 
+				<br>Actor : 
+				<br>Release Date : <%= @movie.release_date%>
+				<br>
+				</p>
+			</div>
+			<div class="otherReview">
+				<h2>Reviews</h2>
+				<p>他ユーザーのレビュー</p>
+    		</div>
+    	</div>
+    </div>
+</div>
+
