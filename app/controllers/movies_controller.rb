@@ -6,6 +6,8 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @review = current_user.reviews.build if signed_in?
+    @feed_items = current_user.feed.paginate(page: params[:page]) if signed_in?
   end
 
   def new

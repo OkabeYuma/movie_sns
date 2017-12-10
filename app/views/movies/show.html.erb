@@ -22,9 +22,11 @@
 			<div class="moviePic">
             　<%= image_tag(@movie.poster_path) %>
         　  </div>
-
-				<button type="button">お気に入りに追加</button>
-				<button type="button" onClick="#" value="Jump">レビューを投稿</button>
+            <section>
+                <%= render 'shared/review_form' %>
+            </section>
+			<button type="button">お気に入りに追加</button>
+			<button type="button" onClick="#" value="Jump">レビューを投稿</button>
 		</div>
 		<div class="clm-right">
 			<div class="movieStory">
